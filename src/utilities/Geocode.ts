@@ -1,6 +1,6 @@
 import opencage from 'opencage-api-client'
 
-type GeocodeResult = {
+export type GeocodeResult = {
   formatted: string
   timezone: string
   lat: number
