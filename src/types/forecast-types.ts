@@ -50,6 +50,6 @@ export interface Forecast {
       units: Units
       updated_at: string
     }
+    timeseries: TimeseriesEntry[]
   }
-  timeseries: TimeseriesEntry[]
 }
