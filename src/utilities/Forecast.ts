@@ -6,8 +6,8 @@ export const getForecast = async (location: GeocodeResult): Promise<Forecast | f
     `${import.meta.env.VITE_API_ENDPOINT}/api/forecast?lat=${location.lat}&lng=${location.lng}`,
   )
   if (results) {
-    const forecast = await results.json()
-    return forecast
+    const data = await results.json()
+    return data.forecast
   }
 
   return false
