@@ -5,6 +5,7 @@ import { ForwardGeocode } from './utilities/Geocode'
 import type { GeocodeResult } from './utilities/Geocode'
 import type { Forecast } from './types/forecast-types'
 import { getForecast } from './utilities/Forecast'
+import { WeatherCard } from './components/Forecast/WeatherCard'
 
 function App() {
   const [location, setLocation] = useState<GeocodeResult | false>(false)
@@ -31,20 +32,9 @@ function App() {
   return (
     <div className="pk-4 container mx-auto">
       <SearchBox handleSubmit={handleSearchSubmit} />
-
       {loading && <Loader />}
 
-      {!loading && location && forecast && (
-        <div className="mt-6 max-w-sm overflow-hidden rounded border-2 border-teal-500">
-          <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold">{location.formatted}</div>
-            <p className="text-base text-gray-700">
-              {forecast.properties.timeseries[0].data.instant.details.air_temperature}{' '}
-              {forecast.properties.meta.units.air_temperature}
-            </p>
-          </div>
-        </div>
-      )}
+      {!loading && location && forecast && <WeatherCard location={location} forecast={forecast} />}
     </div>
   )
 }
