@@ -1,10 +1,7 @@
 import { getImageURL } from '../../utilities/image-utils'
+import { getIconDescription } from '../../utilities/Forecast'
 import type { Forecast } from '../../types/forecast-types'
 import type { GeocodeResult } from '../../utilities/Geocode'
-import iconLegend from '../../utilities/icon-legend'
-
-const getIconDescription = (icon: string) =>
-  iconLegend.filter(({ symbol }) => symbol === icon.substring(0, icon.indexOf('_'))).map(({ english }) => english)[0]
 
 export const WeatherCard = ({ forecast, location }: { forecast: Forecast; location: GeocodeResult }) => {
   const symbolCode = forecast.properties.timeseries[0].data.next_1_hours.summary.symbol_code

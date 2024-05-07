@@ -1,5 +1,6 @@
 import type { GeocodeResult } from './Geocode'
 import type { Forecast } from '../types/forecast-types'
+import iconLegend from './icon-legend'
 
 export const getForecast = async (location: GeocodeResult): Promise<Forecast | false> => {
   const results = await fetch(
@@ -11,4 +12,12 @@ export const getForecast = async (location: GeocodeResult): Promise<Forecast | f
   }
 
   return false
+}
+
+export const getIconDescription = (icon: string): string => {
+  const lang = 'english' // todo: add language switch
+  const parsedIcon = icon.includes('_') ? icon.substring(0, icon.indexOf('_')) : icon
+  const description = iconLegend.filter(({ symbol }) => symbol === parsedIcon)
+
+  return description[0][lang] || ''
 }
