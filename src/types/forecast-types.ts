@@ -26,7 +26,7 @@ interface Upcoming {
   }
 }
 
-interface TimeseriesEntry {
+export interface TimeseriesEntry {
   data: {
     instant: {
       details: Details
@@ -34,8 +34,8 @@ interface TimeseriesEntry {
     next_12_hours: Upcoming
     next_1_hours: Upcoming
     next_6_hours: Upcoming
-    time: string
   }
+  time: string
 }
 
 export interface Forecast {
