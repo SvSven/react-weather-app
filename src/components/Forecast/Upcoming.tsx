@@ -11,7 +11,7 @@ export const Upcoming = ({ timeseries }: { timeseries: TimeseriesEntry[] }) => {
         const description = getIconDescription(symbolCode)
 
         return (
-          <div className="flex flex-col items-center p-1">
+          <div className="flex flex-col items-center p-1" key={entry.time}>
             <p className="pb-4 text-sm font-thin">{format(parseISO(entry.time).toString(), 'k:mm')}</p>
 
             <p className="mb-2 flex items-center text-left text-lg font-semibold">
