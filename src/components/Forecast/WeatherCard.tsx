@@ -1,5 +1,5 @@
 import { getImageURL } from '../../utilities/image-utils'
-import { getIconDescription, filterTimeseries } from '../../utilities/Forecast'
+import { getIconDescription, filterTimeseries } from '@utils/Forecast'
 import { Upcoming } from './Upcoming'
 import type { Forecast } from '../../types/forecast-types'
 import type { GeocodeResult } from '../../utilities/Geocode'

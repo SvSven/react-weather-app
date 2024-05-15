@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { SearchBox, Loader } from './components'
+import { SearchBox, Loader } from '@components'
 import { ForwardGeocode } from './utilities/Geocode'
 import type { GeocodeResult } from './utilities/Geocode'
 import type { Forecast } from './types/forecast-types'
-import { getForecast } from './utilities/Forecast'
-import { WeatherCard } from './components/Forecast/WeatherCard'
+import { getForecast } from '@utils/Forecast'
+import { WeatherCard } from '@components/Forecast/WeatherCard'
 
 function App() {
   const [location, setLocation] = useState<GeocodeResult | false>(false)
