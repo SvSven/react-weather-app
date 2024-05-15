@@ -1,6 +1,7 @@
 import type { GeocodeResult } from './Geocode'
-import type { Forecast } from '../types/forecast-types'
+import type { Forecast, TimeseriesEntry } from '../types/forecast-types'
 import iconLegend from './icon-legend'
+import { closestTo, isAfter } from 'date-fns'
 
 export const getForecast = async (location: GeocodeResult): Promise<Forecast | false> => {
   const results = await fetch(
@@ -20,4 +21,16 @@ export const getIconDescription = (icon: string): string => {
   const description = iconLegend.filter(({ symbol }) => symbol === parsedIcon)
 
   return description[0][lang] || ''
+}
+
+export const filterTimeseries = (timeseries: TimeseriesEntry[]) => {
+  // todo: account for different timezones
+
+  const now = new Date().toISOString().slice(0, -5) + 'Z'
+  const times = timeseries.map(({ time }) => time)
+
+  const closestTime = closestTo(now, times)?.toISOString().slice(0, -5) + 'Z'
+  if (!closestTime) return timeseries
+
+  return timeseries.filter(({ time }) => time === closestTime || isAfter(time, closestTime))
 }
