@@ -30,8 +30,9 @@ function App() {
   }
 
   return (
-    <div className="pk-4 container mx-auto">
+    <div className="mt-36 flex h-screen flex-col items-center">
       <SearchBox handleSubmit={handleSearchSubmit} />
+      <span className="mb-5 text-sm italic">Weather data from MET Norway</span>
       {loading && <Loader />}
 
       {!loading && location && forecast && <WeatherCard location={location} forecast={forecast} />}

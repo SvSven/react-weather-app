@@ -13,7 +13,7 @@ export const WeatherCard = ({ forecast, location }: { forecast: Forecast; locati
   const description = getIconDescription(symbolCode)
 
   return (
-    <div className="mt-6 max-w-sm overflow-hidden rounded bg-gradient-to-r from-sky-700 via-cyan-700 to-sky-800 text-white">
+    <div className="mt-6 max-w-lg overflow-hidden rounded bg-gradient-to-r from-sky-700 via-cyan-700 to-sky-800 text-white">
       <div className="p-6">
         <h3 className="text-base font-light">{location.formatted}</h3>
         <div className="flex gap-4 pt-4">
