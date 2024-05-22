@@ -1,6 +1,7 @@
 import { getImageURL } from '../../utilities/image-utils'
 import { getIconDescription, filterTimeseries } from '@utils/Forecast'
 import { Upcoming } from './Upcoming'
+import { WindDetails } from './WindDetails'
 import type { Forecast } from '../../types/forecast-types'
 import type { GeocodeResult } from '../../utilities/Geocode'
 
@@ -24,6 +25,14 @@ export const WeatherCard = ({ forecast, location }: { forecast: Forecast; locati
             <img src={getImageURL(symbolCode)} alt={description} className="w-full max-w-12 object-cover" />
             <p className="text-lg font-semibold">{description}</p>
           </div>
+        </div>
+        <div>
+          <p className="mb-2 mt-2 text-base">Humidity: {currentForecast.data.instant.details.relative_humidity}%</p>
+
+          <WindDetails
+            speed={currentForecast.data.instant.details.wind_speed}
+            direction={currentForecast.data.instant.details.wind_from_direction}
+          />
         </div>
       </div>
       <Upcoming timeseries={timeseries.slice(1, 5)} />
