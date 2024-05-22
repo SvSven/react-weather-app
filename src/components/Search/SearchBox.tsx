@@ -13,7 +13,7 @@ export const SearchBox = ({ handleSubmit }: SearchBoxProps) => {
   }
 
   return (
-    <form className="w-full max-w-sm" onSubmit={formSubmit}>
+    <form className="w-full max-w-lg px-4" onSubmit={formSubmit}>
       <div className="flex items-stretch gap-2 py-2">
         <input
           className="block w-full appearance-none rounded border bg-gray-200 px-4 py-3 leading-tight text-gray-700 focus:bg-white focus:outline-none"

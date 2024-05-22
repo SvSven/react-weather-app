@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div className="mt-36 flex h-screen flex-col items-center">
+    <div className="mt-16 flex flex-col items-center md:mt-36">
       <SearchBox handleSubmit={handleSearchSubmit} />
       <span className="mb-5 text-sm italic">Weather data from MET Norway</span>
       {loading && <Loader />}

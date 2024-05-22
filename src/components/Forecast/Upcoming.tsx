@@ -5,7 +5,7 @@ import { getImageURL } from '../../utilities/image-utils'
 
 export const Upcoming = ({ timeseries }: { timeseries: TimeseriesEntry[] }) => {
   return (
-    <div className="grid grid-cols-4 gap-4 bg-gradient-to-r from-sky-900 via-cyan-800 to-sky-950 p-6">
+    <div className="grid grid-cols-2 gap-8 bg-gradient-to-r from-sky-900 via-cyan-800 to-sky-950 p-6 md:grid-cols-4">
       {timeseries.map((entry: TimeseriesEntry) => {
         const symbolCode = entry.data.next_1_hours.summary.symbol_code
         const description = getIconDescription(symbolCode)
